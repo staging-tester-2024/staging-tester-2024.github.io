@@ -807,6 +807,7 @@ window.addEventListener('wheel', (event) => {
 
 <div id="weirdWrapper">
 
+  <!--I also design things for search feature-->
   <h1 class="about designTitle weird">
     <span>I</span>
   <span> </span>
@@ -862,6 +863,10 @@ window.addEventListener('wheel', (event) => {
   
 
 
+    .js-app {
+      margin-bottom: 3rem;
+    }
+ 
    
 
     @media screen and (min-device-width: 415px) {
@@ -935,6 +940,15 @@ window.addEventListener('wheel', (event) => {
     
     window.addEventListener("scroll", () => {
       let offset = window.scrollY - 8700;
+
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (isSafari){
+        offset = window.scrollY - 8150;
+        //  max = max * 1.25;
+      }
+
+
+
       let w = offset * 2.2;
 
       if (w > 8500){
@@ -1092,6 +1106,12 @@ window.addEventListener('wheel', (event) => {
   <p class="desc hidden">Swift library for dumping underlying UIKit/AppKit views.</p>
   <a class="tar tar-small hidden fade-in" target="_blank" href="https://github.com/filipvabrousek/Libraries/blob/master/Pin.md">More</a>
       </section>
+
+<section class="js-app hidden">
+        <h3 class="app-title app-title-web hidden">Kerny</h3>
+        <p class="desc hidden">Minimal x86 kernel written in assembly and C</p>
+        <a class="tar tar-small hidden fade-in" target="_blank" href="https://github.com/filipvabrousek/osdev/tree/main/FrOS-minimal-c-kernel">More</a>
+   </section>
 
   <section class="js-app hidden">
   <h3 class="app-title app-title-web hidden">Pin.swift</h3>
