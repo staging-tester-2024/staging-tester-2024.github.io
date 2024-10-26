@@ -265,7 +265,10 @@ class AppShowcase extends HTMLElement {
 
              
               if (this.er === "SPATIAL-NETWORK"){
-                console.log("IOHO")
+                console.log("IOHO");
+                console.log("OH HELLO");
+              //  alert("Hello")
+               // this.shadowRoot.querySelector(".cover").style.height = "2000px";
                 this.shadowRoot.querySelector('.titles').style.fontSize = "8rem";
               } else {
                 this.shadowRoot.querySelector('.titles').style.fontSize = "8rem";
@@ -481,6 +484,26 @@ let adjustedMaxDelay = Math.min(maxDelay, 1 / wordLength); // Scale delay based 
     el.style.color = "transparent";
   }
 
+
+
+/*
+
+  let scaledScale = scale;
+  //alert(this.er);
+  if (this.er === "SPATIAL-NETWORK"){
+    if (Math.abs(scale) > 0.8){
+      scaledScale = 0.8;
+    }
+  } else {
+    scaledScale = Math.abs(scale);
+  }
+  if (this.er === "SPATIAL-NETWORK"){
+     console.log("SCA" + scaledScale);
+   // alert(scaledScale);
+  }*/
+
+
+
   this.appimga.style.opacity = 1;
   //el.style.textShadow = "3px 3px 10px #808080";
   el.style.transform = `scale(0)`;
@@ -537,7 +560,7 @@ const scrollEnd = 1200;  // End interpolating at scrollY = 1200
             console.log(interpolatedBorderRadius);
 
             if (this.er === "SPATIAL-NETWORK"){ // 2900-3400 expecte range
-            console.clear(); // REAL RANGE IS 1600-2800
+           // console.clear(); // REAL RANGE IS 1600-2800
             console.log("SPATIAL RANGE");
             console.log("SR " + scrollRange.from + " - " + scrollRange.to);
 
