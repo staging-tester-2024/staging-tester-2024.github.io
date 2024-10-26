@@ -917,6 +917,10 @@ width: 84%;
     }
    
 
+    .dontShowMobile {
+        display: none;
+    }
+
     .superSpace {
         margin-top: 9rem;
     }
