@@ -328,11 +328,16 @@ class AppShowcase extends HTMLElement {
                     let maxa = Number(newVal.split("-")[1]);
 
                     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                    const isEdge = navigator.userAgent.includes("Edg");
 
                     if (isSafari){
                      
                       mina = mina * .85;
                     //  max = max * 1.25;
+                    }
+
+                    if (isEdge){
+                      mina = mina * 0.85;
                     }
 
 
@@ -356,7 +361,7 @@ class AppShowcase extends HTMLElement {
                   case 'app-background':
                     console.log(`aValue is ${newVal}`);
                   //  this.shadowRoot.querySelector('.titles').style.opacity = 0.6;
-                    this.shadowRoot.querySelector('.blobImage').style.backgroundImage = `url("https://filipvabrousek.github.io/images/relays-image.jpeg")`;
+                    this.shadowRoot.querySelector('.blobImage').style.backgroundImage = `url("${newVal}")`;
                     this.shadowRoot.querySelector('.blobImage').style.backgroundSize = "900px";
                       this.shadowRoot.querySelector('.blobImage').style.backgroundRepeat = "no-repeat";
                     // .background = //"radial-gradient(#2ecc71, #1abc9c)";
@@ -475,8 +480,12 @@ let adjustedMaxDelay = Math.min(maxDelay, 1 / wordLength); // Scale delay based 
 
     if (this.er === "SPATIAL-NETWORK"){
       el.style.color = "#1abc9c";
-    } else {
+    } if (this.er === "RELAYS"){
       el.style.color = "#3498db";
+    } else if (this.er === "EVENY"){
+      el.style.color = "#4EABE8";
+    }   else if (this.er === "RUNNY") {
+      el.style.color = "#1abc9c";
     }
     
    // el.style.color = "black";
@@ -520,33 +529,12 @@ let adjustedMaxDelay = Math.min(maxDelay, 1 / wordLength); // Scale delay based 
 
           if (window.scrollY > 0) {
 
-            const start = [10, 20, 30];
-const end = [40, 60, 80];
-const scrollStart = 800; // Start interpolating at scrollY = 800
-const scrollEnd = 1200;  // End interpolating at scrollY = 1200
-
-
-
-
-    //        this.blobImg.style.width = "400px";
-           // const scrollPositionA = window.scrollY; // Get current scroll position
-           const maxScroll = 500; // Define maximum scroll limit for animation
-    
             // Example range (custom scroll range)
             const scrollRange = { from: this.imageRange.min, to: /*this.imageRange.max*/ this.imageRange.min + 600 }; // Define the custom range
             const scrollPositionA = Math.max(0, Math.min(window.scrollY, scrollRange.to)); // Clamp between from and to
 
             // Normalize scroll position within the range [0, 1]
             const t = (scrollPositionA - scrollRange.from) / (scrollRange.to - scrollRange.from);
-
-            // Define the start and end border-radius values
-          /*  const startBorderRadius = [42, 56, 72, 28, 42, 42, 56, 48]; // Start values
-            const endBorderRadius = [100, 20, 20, 100, 50, 80, 30, 30]; // End values
-
-            // Interpolate between the start and end values
-            const interpolatedBorderRadius = startBorderRadius.map((start, index) => {
-                return start + (endBorderRadius[index] - start) * t; // Linear interpolation
-            });*/
 
             const startBorderRadius = [42, 56, 72, 28, 42, 42, 56, 48]; // Start values
             const endBorderRadius = [100, 20, 20, 100, 50, 80, 30, 30]; // End values

@@ -125,11 +125,8 @@ if (this.minusConstant === undefined){
     let mappedLeft = this.mapRange(window.scrollY, scrollMin, scrollMax, rotMin, rotMax);
 
     //alert(this.appName);
-    if (this.appName === "Spatial"){
-     
+    if (this.appName === "Spatial-Network"){
       mapped = Math.min(mapped, 0.9);
-      console.log("BRENDA");
-      console.log(mapped);
       mappedLeft = Math.min(mappedLeft, 4);
     }
 
