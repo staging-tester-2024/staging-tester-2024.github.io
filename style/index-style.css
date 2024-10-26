@@ -16,6 +16,10 @@
     color: #1abc9c;
 }
 
+.weird {
+    margin-left: 1rem;
+}
+
 @media (max-width: 70rem) {
     .weird span {
         font-size: 3rem;
