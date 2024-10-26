@@ -323,6 +323,16 @@ class AppShowcase extends HTMLElement {
                     console.warn(`Anim start is ${newVal}`);
                     let mina = Number(newVal.split("-")[0]);
                     let maxa = Number(newVal.split("-")[1]);
+
+                    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+                    if (isSafari){
+                     
+                      mina = mina * .85;
+                    //  max = max * 1.25;
+                    }
+
+
                     this.fireAtRange = {from: mina, to: maxa};
                     break;
 
@@ -330,6 +340,9 @@ class AppShowcase extends HTMLElement {
                     console.warn(`Anim start is ${newVal}`);
                     let min = Number(newVal.split("-")[0]);
                     let max = Number(newVal.split("-")[1]);
+
+    
+
                     this.imageRange = {min: min, max: max};
                   //  console.log(rangeObj);
                    // this.globalLimit = newVal;
@@ -549,7 +562,7 @@ const scrollEnd = 1200;  // End interpolating at scrollY = 1200
 
 
         this.appMinusConstant = this.imageRange.min;
-        
+
          //   window.addEventListener("scroll", () => {
               const scrollPositionAB = window.scrollY - this.appMinusConstant;
               const maxScrollForW = 300;
