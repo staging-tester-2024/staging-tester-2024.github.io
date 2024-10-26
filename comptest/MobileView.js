@@ -103,6 +103,7 @@ class MobileView extends HTMLElement {
         this.googlePlay.setAttribute("src", "https://filipvabrousek.github.io/images/playStore.png");
         this.googlePlay.style.display = "none";
         this.appStore.setAttribute("src", "https://filipvabrousek.github.io/images/download.png");
+        this.featured.setAttribute("src", "https://filipvabrousek.github.io/images/appstore-feature.png");
         this.appDesc = "";
       }
       
