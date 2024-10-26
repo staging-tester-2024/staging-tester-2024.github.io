@@ -12,6 +12,8 @@ templatead.innerHTML = `
 <img class="appstore"/>
 <img class="googleplay"/>
 
+<img class="featured"/>
+
 <div id="mobile-showcase">
    <img class="mobile-first"/>
    <img class="mobile-second"/>
@@ -74,6 +76,11 @@ margin-left: auto;
 margin-right: auto;
 margin-bottom: 1.6rem;
 }
+
+.featured {
+display: none;
+width: 240px;
+}
 </style>
 `;
 
@@ -92,13 +99,14 @@ class MobileView extends HTMLElement {
         this.thirdImg = this.shadowRoot.querySelector(".mobile-third");
         this.appStore = this.shadowRoot.querySelector(".appstore");
         this.googlePlay = this.shadowRoot.querySelector(".googleplay");
+        this.featured = this.shadowRoot.querySelector(".featured");
         this.googlePlay.setAttribute("src", "https://filipvabrousek.github.io/images/playStore.png");
         this.googlePlay.style.display = "none";
         this.appStore.setAttribute("src", "https://filipvabrousek.github.io/images/download.png");
         this.appDesc = "";
       }
       
-      static get observedAttributes() { return ["app-desc", "app-title", "app-icon", "mobile-first", "mobile-second", "mobile-third", "mobile-play"]; }
+      static get observedAttributes() { return ["app-desc", "app-title", "app-icon", "mobile-first", "mobile-second", "mobile-third", "mobile-play-url", "mobile-appstore-url", "mobile-featured"]; }
 
       attributeChangedCallback(attr, oldVal, newVal) {
         if (oldVal === newVal) return; // nothing to do
@@ -146,9 +154,25 @@ class MobileView extends HTMLElement {
                       this.thirdImg.setAttribute("src", newVal);
                       break;
 
-                      case 'mobile-play':
+                      case 'mobile-play-url':
                       this.googlePlay.style.display = "block";
+                      this.googlePlay.addEventListener("click", () => {
+                        window.open(newVal);
+                      });
                       break;
+
+                      case 'mobile-appstore-url':
+                        this.appStore.addEventListener("click", () => {
+                          window.open(newVal);
+                        });
+                        break;
+
+                        case 'mobile-featured':
+                          this.featured.style.display = "block";
+                          this.featured.addEventListener("click", () => {
+                            window.open("https://apps.apple.com/story/id1531962992");
+                          });
+                          break;
 
                     
 
