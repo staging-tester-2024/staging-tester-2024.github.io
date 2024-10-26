@@ -80,6 +80,7 @@ margin-bottom: 1.6rem;
 .featured {
 display: none;
 width: 240px;
+margin: auto;
 }
 </style>
 `;
